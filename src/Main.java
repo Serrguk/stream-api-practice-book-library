@@ -1,30 +1,23 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Main {
-    public static final char SYMBOL = 'X';
+    public static final BigDecimal SPEED_OF_LIGHT = BigDecimal.valueOf(1_079_252_848.8); // kph
 
     public static void main(String[] args) {
-        char[][] array = getX(6);
-
-        for (char[] chars : array) {
-            for (int j = 0; j < array.length; j++) {
-                System.out.print(chars[j]);
-            }
-            System.out.println();
-        }
+        System.out.println(speedSum(100000000, 50));
     }
 
-    public static char[][] getX(int size) {
-        char[][] matrix = new char[size][size];
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                matrix[i][j] = ' ';
-            }
+    static BigDecimal speedSum(double speed1, double speed2) {
+        BigDecimal v1 = BigDecimal.valueOf(speed1);
+        BigDecimal v2 = BigDecimal.valueOf(speed2);
+        if (v1.compareTo(SPEED_OF_LIGHT) > 0 || v2.compareTo(SPEED_OF_LIGHT) > 0) {
+            System.out.println("Невозможно превысить скорость света");
+            return BigDecimal.ZERO;
+        } else {
+            return (v1.add(v2))
+                    .divide(BigDecimal.ONE.add((v1.multiply(v2))
+                            .divide(SPEED_OF_LIGHT.pow(2), 20, RoundingMode.HALF_UP)), 20, RoundingMode.HALF_UP);
         }
-
-        for (int i = 0; i < size; i++) {
-            matrix[i][i] = SYMBOL;
-            matrix[size - 1 - i][i] = SYMBOL;
-        }
-        return matrix;
     }
 }

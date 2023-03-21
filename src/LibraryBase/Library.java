@@ -7,7 +7,7 @@ public class Library {
     private List<Book> books;
     private List<Reader> readers;
 
-    public Library(List<Book> books) {
+    public Library() {
         init();
     }
 
@@ -25,6 +25,12 @@ public class Library {
         readers = new ArrayList<>();
 
         readers.add(new Reader("Иванов Иван Иванович", "ivanov@gmail.com", true));
+        readers.add(new Reader("Сидоров Чунгук Лясович", "sidorov@gmail.com", true));
+        readers.add(new Reader("Чаптыков Энрике Побызакович", "chaptyk@gmail.com", true));
+        readers.add(new Reader("Лоза Юрий Котьянович", "lozzza@gmail.com", false));
+        readers.add(new Reader("Шпик Павел Николаевич", "schpick@gmail.com", true));
+        readers.add(new Reader("Сарасти Юкка Упырьевич", "yukka@gmail.com", true));
+        readers.add(new Reader("Падлов Лоскутик Соулсович", "padla@gmail.com", false));
 
         readers.get(0).getBooks().add(books.get(1));
     }

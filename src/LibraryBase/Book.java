@@ -27,11 +27,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "LibraryBase.Book{" +
-                "author='" + author + '\'' +
-                ", nameBook='" + nameBook + '\'' +
-                ", issueYear=" + issueYear +
-                '}';
+        return "\nLibraryBase.Book: " +
+                "Автор " + author +
+                ", название «" + nameBook +
+                "», год издания " + issueYear +
+                "}";
     }
 
     @Override

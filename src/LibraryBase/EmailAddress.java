@@ -19,4 +19,11 @@ public class EmailAddress {
     public void setSomeData(String someData) {
         this.someData = someData;
     }
+
+    @Override
+    public String toString() {
+        return "\nEmailAddress{" +
+                "e-mail='" + email + '\'' +
+                '}';
+    }
 }
